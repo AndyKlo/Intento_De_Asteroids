@@ -12,10 +12,12 @@ public class ScoreTracker : MonoBehaviour
     private bool nivel2 = false;
     private bool nivel3 = false;
 
+    
     public TMPro.TextMeshProUGUI uiPuntaje;
     public TMPro.TextMeshProUGUI uiLives;
     public TMPro.TextMeshProUGUI uiLevels;
 
+    public Button boton;
     public Image gameOverImage;
 
     private void Awake()
@@ -25,10 +27,6 @@ public class ScoreTracker : MonoBehaviour
     }
     private void Start()
     {
-        uiLevels.text = ("NIVEL 1");
-        uiLevels.gameObject.SetActive(true);
-        Invoke(nameof(DesactivarNivel), 3f);
-        GameManager.Instance.StartCoroutine(GameManager.Instance.BlinkPlayer());
         StartGame();
     }
     public void Update()
@@ -39,7 +37,6 @@ public class ScoreTracker : MonoBehaviour
     public void AddScore(int amount)
     {
         score += amount;
-        
         if (score >= 2000 && !nivel2)
         {
             nivel2 = true;
@@ -54,14 +51,8 @@ public class ScoreTracker : MonoBehaviour
     public void Lives(int amount)
     {
         lives -= amount;
-
-        if (lives <= 0)
-        {
-            GameOver();
-        }
-        
+        if (lives <= 0){GameOver();}
     }
-    
     public void NivelDos()
     {
         GameManager.Instance.ClearAsteroids();
@@ -78,8 +69,30 @@ public class ScoreTracker : MonoBehaviour
     }
     public void StartGame()
     {
-        
+        uiLevels.text = ("NIVEL 1");
+        uiLevels.gameObject.SetActive(true);
+        Invoke(nameof(DesactivarNivel), 3f);
+        GameManager.Instance.StartCoroutine(GameManager.Instance.BlinkPlayer());
+        GameManager.Instance.ClearAsteroids();
+        gameOverImage.gameObject.SetActive(false);
+        boton.gameObject.SetActive(false);
+        score = 0;
+        lives = 3;
     }
     public void DesactivarNivel() { uiLevels.gameObject.SetActive(false); }
-    public void GameOver() { gameOverImage.gameObject.SetActive(true); }
+    public void GameOver() 
+    {
+        gameOverImage.gameObject.SetActive(true);
+        boton.gameObject.SetActive(true);
+    }
+    public void PlayAgain()
+    {
+        GameManager game = GameManager.Instance;
+        if (game != null)
+        {
+            game.vidas = 3;
+        }
+        GameManager.Instance.Respawn();
+        StartGame();
+    }
 }

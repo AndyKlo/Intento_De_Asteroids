@@ -36,14 +36,12 @@ public class GameManager : MonoBehaviour
         this.explosion.Play();
         
         vidas--;
-
         if (vidas >= 0)
         {
             Invoke(nameof(Respawn), 3f); //Respawneo en 3segundos
         }
-        
     }
-    private void Respawn()
+    public void Respawn()
     {
         player.transform.position = Vector3.zero;
         player.gameObject.layer = LayerMask.NameToLayer("Invulnerable");

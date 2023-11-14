@@ -171,11 +171,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7955e509896bd442b4cd6486100e196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 3
+  size: 4
   sizeMin: 0.5
-  sizeMax: 4
-  speed: 5
+  sizeMax: 6
+  speed: 15
   maxLife: 100
+  isIndestructible: 0
   sprites:
   - {fileID: 21300000, guid: 766ad70f80a327c47984fef54079def9, type: 3}
   - {fileID: 21300000, guid: 81a2886df4cad3d409216b57a211137c, type: 3}
