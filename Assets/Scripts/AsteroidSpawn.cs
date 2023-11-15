@@ -4,7 +4,7 @@ public class AsteroidSpawn : MonoBehaviour
 {
     public Asteroid asteroidPrefab; //Llamo a mi preFab "Asteroid" para inicializarlo
 
-    public float TrayectoryVariation = 15f;
+    public float TrayectoryVariation = 15f; 
     public int spawnRate = 3;
     public int spawnCount = 1;
     public float spawnDistance = 15f; //Inicializo la distancia de spawn de los asteroides, 15 espacios desde el centro    

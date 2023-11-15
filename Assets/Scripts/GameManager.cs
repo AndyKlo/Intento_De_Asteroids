@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public float tiempoInvulnerable = 3f;
     public int vidas = 3;
 
+    public VidaExtra vidaPrefab;
 
     public void Awake()
     {
@@ -49,6 +50,15 @@ public class GameManager : MonoBehaviour
         StartCoroutine(BlinkPlayer());
         Invoke(nameof(TurnLayer), tiempoInvulnerable);
     }
+    public void NewGame()
+    {
+        player.transform.position = Vector3.zero;
+        player.gameObject.layer = LayerMask.NameToLayer("Invulnerable");
+        player.gameObject.SetActive(true);
+        Invoke(nameof(TurnLayer), tiempoInvulnerable);
+        ClearAsteroids();
+        ClearVidaExtras();
+    }
     private void TurnLayer()
     {
         player.gameObject.layer = LayerMask.NameToLayer("Player");
@@ -59,7 +69,6 @@ public class GameManager : MonoBehaviour
         Color originalColor = playerRenderer.color;
         float blinkDuration = tiempoInvulnerable;
         float blinkSpeed = 10f; 
-
         float elapsedTime = 0f;
 
         while (elapsedTime < blinkDuration)
@@ -69,15 +78,29 @@ public class GameManager : MonoBehaviour
             elapsedTime += Time.deltaTime;
         }
 
-        playerRenderer.color = originalColor;
+        playerRenderer.color = Color.white;
     }
     public void ClearAsteroids()
     {
         Asteroid[] asteroids = FindObjectsOfType<Asteroid>();
-
+        
         foreach (Asteroid asteroid in asteroids)
         {
             Destroy(asteroid.gameObject);
+        }
+    }
+    public VidaExtra VidaEx(Vector2 position)
+    {
+        VidaExtra vida = Instantiate(vidaPrefab, position, this.transform.rotation);
+        return vida;
+    }
+    public void ClearVidaExtras()
+    {
+        VidaExtra[] vidas = FindObjectsOfType<VidaExtra>();
+
+        foreach (VidaExtra vid in vidas)
+        {
+            Destroy(vid.gameObject);
         }
     }
 }

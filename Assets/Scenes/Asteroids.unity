@@ -330,7 +330,7 @@ MonoBehaviour:
   asteroidPrefab: {fileID: 1689331623402715493, guid: 6ead9c0527e59554fb977f8c7ec38f15, type: 3}
   TrayectoryVariation: 15
   spawnRate: 4
-  spawnCount: 7
+  spawnCount: 4
   spawnDistance: 15
 --- !u!4 &198062779
 Transform:
@@ -775,6 +775,7 @@ MonoBehaviour:
   explosion: {fileID: 1986169695}
   tiempoInvulnerable: 3
   vidas: 3
+  vidaPrefab: {fileID: -4680720165633695429, guid: 8e4c558f5a13f9d4da393e8b8d4efb0a, type: 3}
 --- !u!4 &470029819
 Transform:
   m_ObjectHideFlags: 0

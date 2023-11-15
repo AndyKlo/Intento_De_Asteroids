@@ -37,7 +37,7 @@ public class ScoreTracker : MonoBehaviour
     public void AddScore(int amount)
     {
         score += amount;
-        if (score >= 2000 && !nivel2)
+        if (score >= 1000 && !nivel2)
         {
             nivel2 = true;
             Invoke(nameof(NivelDos), 1);
@@ -73,7 +73,6 @@ public class ScoreTracker : MonoBehaviour
         uiLevels.gameObject.SetActive(true);
         Invoke(nameof(DesactivarNivel), 3f);
         GameManager.Instance.StartCoroutine(GameManager.Instance.BlinkPlayer());
-        GameManager.Instance.ClearAsteroids();
         gameOverImage.gameObject.SetActive(false);
         boton.gameObject.SetActive(false);
         score = 0;
@@ -92,7 +91,7 @@ public class ScoreTracker : MonoBehaviour
         {
             game.vidas = 3;
         }
-        GameManager.Instance.Respawn();
+        game.NewGame();
         StartGame();
     }
 }
