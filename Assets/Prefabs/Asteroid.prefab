@@ -177,6 +177,8 @@ MonoBehaviour:
   speed: 15
   maxLife: 100
   isIndestructible: 0
+  vidaExtra: 0
+  audioExplo: {fileID: 8300000, guid: 5aeee84d6d54c454bbfc0ec35b659d57, type: 3}
   sprites:
   - {fileID: 21300000, guid: 766ad70f80a327c47984fef54079def9, type: 3}
   - {fileID: 21300000, guid: 81a2886df4cad3d409216b57a211137c, type: 3}

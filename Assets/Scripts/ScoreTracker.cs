@@ -78,7 +78,7 @@ public class ScoreTracker : MonoBehaviour
         score = 0;
         lives = 3;
     }
-    public void DesactivarNivel() { uiLevels.gameObject.SetActive(false); }
+    public void DesactivarNivel() {uiLevels.gameObject.SetActive(false);}
     public void GameOver() 
     {
         gameOverImage.gameObject.SetActive(true);

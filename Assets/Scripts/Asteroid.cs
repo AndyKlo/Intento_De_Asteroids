@@ -17,6 +17,8 @@ public class Asteroid : MonoBehaviour
     public bool isIndestructible = false;
     public bool vidaExtra = false;
 
+    public AudioClip audioExplo;
+
     [SerializeField] public Sprite[] sprites;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
@@ -48,7 +50,6 @@ public class Asteroid : MonoBehaviour
             rb.mass *= 5f;
             spriteRenderer.color = Color.red;
         }
-        
     }
 
     public void SetTrajectory(Vector2 direction)
@@ -75,8 +76,9 @@ public class Asteroid : MonoBehaviour
         {
             if (!isIndestructible) // Verifica si el asteroide no es indestructible
             {
+                
                 //si vidaExtra es true y el tamaño menor a 1 instancia una vida extra.
-                if (vidaExtra && this.size <= 1f)
+                if (vidaExtra/* && this.size <= 1f*/)
                 {
                     GameManager.Instance.VidaEx(position);
                 }
@@ -97,7 +99,7 @@ public class Asteroid : MonoBehaviour
                     score = 50;
                 }
                 else{score = 25;}
-
+                SoundController.instance.EjecutarSonido(audioExplo);
                 GameManager.Instance.AsteroidDeath(this);
                 ScoreTracker.instance.AddScore(score);
                 Destroy(this.gameObject);
