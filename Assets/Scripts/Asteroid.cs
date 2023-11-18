@@ -47,24 +47,18 @@ public class Asteroid : MonoBehaviour
         if (this.isIndestructible)
         {//si es indestructible cambio el layer, le multiplico la masa y le cambio el color
             this.gameObject.layer = LayerMask.NameToLayer("Asteroide_Rojo");
-            rb.mass *= 5f;
+            rb.mass *= 0.5f;
             spriteRenderer.color = Color.red;
         }
     }
 
+    public void AsteroidsMenu(Vector3 direction){rb.AddForce(direction * 1000);}
     public void SetTrajectory(Vector2 direction)
     {
-        if (spriteRenderer.color == Color.red)
-        {
-            rb.AddForce(this.speed * direction * 20f);
-        }
+        rb.AddForce(direction * this.speed);
         if (this.isIndestructible)
         {
-            rb.AddForce(this.speed * direction * 20f);
-        }
-        else
-        {
-            rb.AddForce(direction * this.speed);
+            rb.AddForce(this.speed * direction * 5f);
         }
     }
 
@@ -72,13 +66,17 @@ public class Asteroid : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Vector2 position = this.transform.position;
+        if (collision.gameObject.CompareTag("PerimetroMenu"))//al chocar con la bala
+        {
+            Destroy(this.gameObject);
+        }
         if (collision.gameObject.CompareTag("Bullet"))//al chocar con la bala
         {
             if (!isIndestructible) // Verifica si el asteroide no es indestructible
             {
                 
                 //si vidaExtra es true y el tamaño menor a 1 instancia una vida extra.
-                if (vidaExtra/* && this.size <= 1f*/)
+                if (vidaExtra && this.size <= 1f)
                 {
                     GameManager.Instance.VidaEx(position);
                 }
@@ -125,7 +123,7 @@ public class Asteroid : MonoBehaviour
         //si el asteroide es indestructible, aumenta la velocidad de trayectoria.
         if (half.isIndestructible == true)
         {
-            half.SetTrajectory(UnityEngine.Random.Range(20,25) * this.speed * UnityEngine.Random.insideUnitCircle.normalized);
+            half.SetTrajectory(UnityEngine.Random.Range(5,15) * this.speed * UnityEngine.Random.insideUnitCircle.normalized);
         }
         half.SetTrajectory(UnityEngine.Random.Range(1, 7) * this.speed * UnityEngine.Random.insideUnitCircle.normalized);
         //retorna la mitad del asteroide

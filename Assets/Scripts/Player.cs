@@ -5,9 +5,9 @@ public class Player : MonoBehaviour
 {
 
     public Bullet bulletPrefab;  //Llamo a la clase Bullet para inicializarla.
-    public float velocidad = 1f;
+    public float velocidad = 1.4f;
     //public float velocidadRetroceso = 0.1f;
-    public float velocidadRotacion = 0.1f;
+    public float velocidadRotacion = 0.15f;
 
     private Rigidbody2D rb;
     private bool puntero; //defino la variable puntero como bool, para agregarle posterior agregarle una condición.

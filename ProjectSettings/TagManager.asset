@@ -7,6 +7,7 @@ TagManager:
   - Bullet
   - Asteroid
   - Perimetro
+  - PerimetroMenu
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Invulnerable
   - Asteroide_Rojo
   - vidaExtra
-  - 
+  - PerimetroMenu
   - 
   - 
   - 
@@ -43,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: asteroides
+    uniqueID: 408155285
+    locked: 0
+  - name: imagenMenu
+    uniqueID: 1756674425
     locked: 0

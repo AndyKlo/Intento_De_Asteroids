@@ -20,6 +20,7 @@ public class ScoreTracker : MonoBehaviour
     public Button boton;
     public Image gameOverImage;
 
+
     private void Awake()
     {
         instance = this;
@@ -55,20 +56,29 @@ public class ScoreTracker : MonoBehaviour
     }
     public void NivelDos()
     {
+
+        AsteroidSpawn aSpawn = AsteroidSpawn.Instance;
         GameManager.Instance.ClearAsteroids();
         uiLevels.text = ("NIVEL 2");
         uiLevels.gameObject.SetActive(true);
         Invoke(nameof(DesactivarNivel), 3f);
+        aSpawn.repeSpawn = 3f;
     }
     public void NivelTres()
     {
+
+        AsteroidSpawn aSpawn = AsteroidSpawn.Instance;
         GameManager.Instance.ClearAsteroids();
         uiLevels.text = ("NIVEL 3");
         uiLevels.gameObject.SetActive(true);
         Invoke(nameof(DesactivarNivel), 3f);
+        aSpawn.repeSpawn = 7f;
     }
     public void StartGame()
     {
+
+        AsteroidSpawn aSpawn = AsteroidSpawn.Instance;
+        aSpawn.repeSpawn = 1.2f;
         uiLevels.text = ("NIVEL 1");
         uiLevels.gameObject.SetActive(true);
         Invoke(nameof(DesactivarNivel), 3f);

@@ -328,10 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroidPrefab: {fileID: 1689331623402715493, guid: 6ead9c0527e59554fb977f8c7ec38f15, type: 3}
-  TrayectoryVariation: 15
-  spawnRate: 4
-  spawnCount: 4
-  spawnDistance: 15
+  repeSpawn: 1
 --- !u!4 &198062779
 Transform:
   m_ObjectHideFlags: 0
@@ -379,11 +376,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 85720118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -311.63, y: 175}
-  m_SizeDelta: {x: 111.3785, y: 43.4355}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 12, y: -20}
+  m_SizeDelta: {x: 111.37851, y: 43.435486}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &282435964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,7 +613,7 @@ Transform:
   m_GameObject: {fileID: 319423764}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.341749, y: -5.5047407, z: -0.7222308}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1403,11 +1400,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 85720118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300.4, y: 132.55}
-  m_SizeDelta: {x: 110.8052, y: 37.2046}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 41, y: -61}
+  m_SizeDelta: {x: 110.80521, y: 37.20459}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &1439209249
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1463,15 +1460,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1499,7 +1496,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 1.0269775, z: 0, w: -2.0539246}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1612,11 +1609,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 85720118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -373.49, y: 135.7}
-  m_SizeDelta: {x: 25.6886, y: 30.9047}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 12, y: -62}
+  m_SizeDelta: {x: 25.688599, y: 30.904694}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1526782040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1755,8 +1752,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6561701735546604499, guid: 05ecd573a469cbe4d910d5460471ecee, type: 3}
-  velocidad: 1
-  velocidadRotacion: 0.1
+  velocidad: 1.4
+  velocidadRotacion: 0.15
 --- !u!61 &1545858524
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1789,7 +1786,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.0049043894}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1800,7 +1797,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 0.64, y: 0.64980876}
   m_EdgeRadius: 0
 --- !u!50 &1545858525
 Rigidbody2D:
@@ -6927,8 +6924,8 @@ SceneRoots:
   - {fileID: 1545858522}
   - {fileID: 198062779}
   - {fileID: 470029819}
+  - {fileID: 468506584}
   - {fileID: 1986169696}
+  - {fileID: 319423767}
   - {fileID: 85720118}
   - {fileID: 29383972}
-  - {fileID: 468506584}
-  - {fileID: 319423767}
